@@ -16,7 +16,7 @@ void error_usage(const char *name, int err)
 
 int main(int argc, char *argv[])
 {
-  char *srch, match[16], word[16];
+  char *srch, match[MAX_WORD_LEN], word[MAX_WORD_LEN];
   int count[26], ci, wild = 0, finding = 1, pos = 0;
 
   if ( argc < 2 )
@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
         else finding = 0;
         if ( finding == 1 ) 
         {
-          if ( pos < 15 )
+          if ( pos < MAX_WORD_LEN - 1 )
           {
             word[pos++] = ci;
             word[pos] = '\0';
